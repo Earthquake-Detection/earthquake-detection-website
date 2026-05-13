@@ -4,7 +4,6 @@ import numpy as np
 import joblib
 import pandas as pd
 
-
 app = Flask(__name__)
 
 model = tf.keras.models.load_model("earthquake_model.h5")
