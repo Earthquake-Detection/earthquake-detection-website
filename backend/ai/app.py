@@ -6,9 +6,9 @@ import pandas as pd
 
 app = Flask(__name__)
 
-model = tf.keras.models.load_model("earthquake_model.h5")
+model = tf.keras.models.load_model("ai/earthquake_model.h5")
 
-scaler = joblib.load("scaler.pkl")
+scaler = joblib.load("ai/scaler.pkl")
 
 @app.route('/predict', methods=['POST'])
 def predict():
