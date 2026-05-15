@@ -7,9 +7,12 @@ import os
 
 app = Flask(__name__)
 
-model = tf.keras.models.load_model("ai/earthquake_model.h5")
+# Fix: use absolute paths relative to this file's location
+BASE_DIR = os.path.dirname(os.path.abspath(__file__))
 
-scaler = joblib.load("ai/scaler.pkl")
+model = tf.keras.models.load_model(os.path.join(BASE_DIR, "earthquake_model.h5"))
+
+scaler = joblib.load(os.path.join(BASE_DIR, "scaler.pkl"))
 
 @app.route('/predict', methods=['POST'])
 def predict():
